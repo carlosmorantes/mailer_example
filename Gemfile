@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # to delayed jobs
 gem 'delayed_job_active_record'
 
-## Use jquery as the JavaScript library
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
