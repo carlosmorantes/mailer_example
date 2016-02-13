@@ -1,0 +1,44 @@
+== README
+
+
+
+Configuring mailer and mailcatcher and gem delayed_job_active_record.
+
+
+- It is not necessary to install as a gem mailcatcher (http:127.0.0.1:1080)
+- Do a scaffold, rails g scaffold person name email
+
+1) Configure in application.rb:
+
+config.action_mailer.default_url_options = { host: 'example.com'}
+
+     config.action_mailer.delivery_method = :smtp
+     config.action_mailer.smtp_settings = {
+         address: 'localhost',
+         port: 1025 # mailcatcher port
+     }
+
+2) rails g mailer welcome notify
+
+- Follow the examples in the following folders:
+
+3) Check the method mailer/welcome.rb
+4) Check also mailer/application_mailer.rb
+5) check also people_controller.rb the line with Welcome.notify
+
+Gem delayed_job_active_record
+
+1) gem 'delayed_job_active_record'
+2) rails g delayed_job:active_record
+3) rake db:migrate
+note: To send the emails inmediately user deliver_now as in 5)
+note: To postpone the emails later user deliver_later! as in 5)
+
+When using deliver_later! It will queued the emails and to send them use rake jobs:workoff
+
+Example from: https://www.youtube.com/watch?v=b802iBmwDvA
+
+
+
+
+
